@@ -19,12 +19,17 @@ namespace BD_Films
             //Save config.GetConnectionString("DefaultConnection"); to connectionString
             connectionString = config.GetConnectionString("DefaultConnection");
 
+            //Get path to database file SQLite3 from connectionString
+            //string Path = connectionString.Split(";")[0].Split("=")[1];
+            //string absolutePath = Path.GetFullPath(relativePath)
+            //string currentDir = Directory.GetCurrentDirectory();
+
             //Create connection to database file SQLite3 from connectionString
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM Films";
+                command.CommandText = "SELECT * FROM Films LIMIT 3;";
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
