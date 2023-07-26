@@ -5,7 +5,6 @@ Microsoft.EntityFrameworkCore.Tools
 в ваш проект через NuGet Package Manager или команду dotnet add package.
 */
 
-
 /*
 Классы могут сформироваться автоматически на основании структуры базы данных, 
 если вы используете подход Database First, то есть генерируете модель из существующей базы данных. 
@@ -24,9 +23,9 @@ dotnet ef dbcontext scaffold "Data Source=C:\Work\C_Sharp\Bing\BD_Films\BD_Films
 
 Это позволит вам сравнить новые и старые файлы и перенести свои изменения в новые файлы.
 
-Надеюсь, это поможет вам. Если у вас есть еще вопросы, пожалуйста, спрашивайте. blush
-
-: https://docs.microsoft.com/en-us/ef/core/cli/dotnet#dotnet-ef-dbcontext-scaffold
+Надеюсь, это поможет вам. Если у вас есть еще вопросы, пожалуйста, спрашивайте. blush:
+https://docs.microsoft.com/en-us/ef/core/cli/dotnet#dotnet-ef-dbcontext-scaffold
+ 
  */
 using BD_Films.Models;
 using Microsoft.Data.Sqlite;
