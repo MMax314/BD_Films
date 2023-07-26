@@ -1,3 +1,22 @@
+/*
+Microsoft.EntityFrameworkCore.Sqlite
+Microsoft.EntityFrameworkCore.Tools
+ƒобавьте пакеты Microsoft.EntityFrameworkCore.Sqlite и Microsoft.EntityFrameworkCore.Tools 
+в ваш проект через NuGet Package Manager или команду dotnet add package.
+*/
+
+
+/*
+ лассы могут сформироватьс€ автоматически на основании структуры базы данных, 
+если вы используете подход Database First, то есть генерируете модель из существующей базы данных. 
+ƒл€ этого вам нужно использовать инструмент Scaffold-DbContext, 
+который доступен через Package Manager Console или dotnet CLI. 
+Ќапример, если вы хотите сгенерировать модель из базы данных SQLite, то вы можете использовать следующую команду:
+dotnet ef dbcontext scaffold "Data Source=MyDatabase.db" Microsoft.EntityFrameworkCore.Sqlite -o Models
+Ёта команда создаст класс контекста данных и классы сущностей в папке Models на основе таблиц в базе данных MyDatabase.db. ¬ы можете указать дополнительные параметры дл€ настройки генерации модели, такие как им€ контекста данных, пространство имен, схемы и т.д.
+
+dotnet ef dbcontext scaffold "Data Source=C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\wwwroot\DB_Films.sqlite3" Microsoft.EntityFrameworkCore.Sqlite -o Models --project C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\BD_Films.csproj 
+*/
 using Microsoft.Data.Sqlite;
 using System.Runtime.CompilerServices;
 
