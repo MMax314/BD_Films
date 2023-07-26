@@ -28,7 +28,10 @@ dotnet ef dbcontext scaffold "Data Source=C:\Work\C_Sharp\Bing\BD_Films\BD_Films
 
 : https://docs.microsoft.com/en-us/ef/core/cli/dotnet#dotnet-ef-dbcontext-scaffold
  */
+using BD_Films.Models;
 using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System.Runtime.CompilerServices;
 
 namespace BD_Films
@@ -75,6 +78,8 @@ namespace BD_Films
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<DbFilmsContext>(options => options.UseSqlite(connectionString));
 
             var app = builder.Build();
 
