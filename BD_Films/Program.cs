@@ -6,6 +6,7 @@ Microsoft.EntityFrameworkCore.Tools
 */
 
 /*
+-- ------------------------------
 Классы могут сформироваться автоматически на основании структуры базы данных, 
 если вы используете подход Database First, то есть генерируете модель из существующей базы данных. 
 Для этого вам нужно использовать инструмент Scaffold-DbContext, 
@@ -13,19 +14,16 @@ Microsoft.EntityFrameworkCore.Tools
 Например, если вы хотите сгенерировать модель из базы данных SQLite, то вы можете использовать следующую команду:
 dotnet ef dbcontext scaffold "Data Source=MyDatabase.db" Microsoft.EntityFrameworkCore.Sqlite -o Models
 Эта команда создаст класс контекста данных и классы сущностей в папке Models на основе таблиц в базе данных MyDatabase.db. Вы можете указать дополнительные параметры для настройки генерации модели, такие как имя контекста данных, пространство имен, схемы и т.д.
-
+-- ------------------------------
 dotnet ef dbcontext scaffold "Data Source=C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\wwwroot\DB_Films.sqlite3" Microsoft.EntityFrameworkCore.Sqlite -o Models --project C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\BD_Films.csproj 
-
+-- ------------------------------
 ВОПРОС: Если структура данных изменилась, то мне надо еще раз будет запустить эту команду и файлы в папке Models будут обновлены?
 ОТВЕТ: Да, если структура данных изменилась, то вам нужно еще раз запустить эту команду, чтобы обновить файлы в папке Models. Однако, вы должны быть осторожны, так как это может перезаписать любые изменения, которые вы сделали в этих файлах. Поэтому, если вы хотите сохранить свои изменения, вам нужно использовать параметр --force, который создаст новые файлы и переименует старые файлы с суффиксом .old. Например:
-
 dotnet ef dbcontext scaffold "Data Source=C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\wwwroot\DB_Films.sqlite3" Microsoft.EntityFrameworkCore.Sqlite -o Models --project BD_Films.csproj --force
-
 Это позволит вам сравнить новые и старые файлы и перенести свои изменения в новые файлы.
-
 Надеюсь, это поможет вам. Если у вас есть еще вопросы, пожалуйста, спрашивайте. blush:
 https://docs.microsoft.com/en-us/ef/core/cli/dotnet#dotnet-ef-dbcontext-scaffold
- 
+-- ------------------------------ 
  */
 using BD_Films.Models;
 using Microsoft.Data.Sqlite;
@@ -38,6 +36,9 @@ namespace BD_Films
     public class Program
     {
         public static string? connectionString { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public static void readConfig()
         {
             // Read config file appsettings.json
