@@ -5,6 +5,8 @@ namespace BD_Films.Models;
 
 public partial class FilmsActor
 {
+    public long Id { get; set; }
+
     public long? IdFilm { get; set; }
 
     public long? IdActor { get; set; }

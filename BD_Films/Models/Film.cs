@@ -14,4 +14,6 @@ public partial class Film
     public long? Year { get; set; }
 
     public string? Genre { get; set; }
+
+    public virtual ICollection<FilmsActor> FilmsActors { get; set; } = new List<FilmsActor>();
 }

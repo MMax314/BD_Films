@@ -7,7 +7,6 @@ Microsoft.EntityFrameworkCore.Tools
 
 /*
 -- ------------------------------
-новый текст
 Классы могут сформироваться автоматически на основании структуры базы данных, 
 если вы используете подход Database First, то есть генерируете модель из существующей базы данных. 
 Для этого вам нужно использовать инструмент Scaffold-DbContext, 
@@ -19,7 +18,8 @@ dotnet ef dbcontext scaffold "Data Source=MyDatabase.db" Microsoft.EntityFramewo
 dotnet ef dbcontext scaffold "Data Source=C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\wwwroot\DB_Films.sqlite3" Microsoft.EntityFrameworkCore.Sqlite -o Models --project C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\BD_Films.csproj 
 -- ------------------------------
 ВОПРОС: Если структура данных изменилась, то мне надо еще раз будет запустить эту команду и файлы в папке Models будут обновлены?
-ОТВЕТ: Да, если структура данных изменилась, то вам нужно еще раз запустить эту команду, чтобы обновить файлы в папке Models. Однако, вы должны быть осторожны, так как это может перезаписать любые изменения, которые вы сделали в этих файлах. Поэтому, если вы хотите сохранить свои изменения, вам нужно использовать параметр --force, который создаст новые файлы и переименует старые файлы с суффиксом .old. Например:
+ОТВЕТ: Да, если структура данных изменилась, то вам нужно еще раз запустить эту команду, чтобы обновить файлы в папке Models. Однако, вы должны быть осторожны, так как это может перезаписать любые изменения, которые вы сделали в этих файлах. 
+Поэтому, если вы хотите сохранить свои изменения, вам нужно использовать параметр --force, который создаст новые файлы и переименует старые файлы с суффиксом .old. Например:
 dotnet ef dbcontext scaffold "Data Source=C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\wwwroot\DB_Films.sqlite3" Microsoft.EntityFrameworkCore.Sqlite -o Models --project BD_Films.csproj --force
 Это позволит вам сравнить новые и старые файлы и перенести свои изменения в новые файлы.
 Надеюсь, это поможет вам. Если у вас есть еще вопросы, пожалуйста, спрашивайте. blush:
@@ -37,8 +37,11 @@ namespace BD_Films
     public class Program
     {
         public static string? connectionString { get; set; }
+
         /// <summary>
-        /// 
+        /// 1) Read config file appsettings.json
+        /// 2) Test connection to database file SQLite3
+        /// 3) Read data from database file SQLite3
         /// </summary>
         public static void readConfig()
         {
@@ -47,7 +50,7 @@ namespace BD_Films
                   .SetBasePath(Directory.GetCurrentDirectory())
                   .AddJsonFile("appsettings.json");
 
-            //get value DefaultConnection  
+            //get value DefaultConnection
             var config = builder.Build();
 
             //Save config.GetConnectionString("DefaultConnection"); to connectionString
