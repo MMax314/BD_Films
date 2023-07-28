@@ -6,6 +6,9 @@ Microsoft.EntityFrameworkCore.Tools
 */
 
 /*
+TEXT: ты можешь использовать строковый формат ISO8601, например YYYY-MM-DD HH:MM:SS.SSS 
+*/
+/*
 -- ------------------------------
 Классы могут сформироваться автоматически на основании структуры базы данных, 
 если вы используете подход Database First, то есть генерируете модель из существующей базы данных. 
@@ -15,7 +18,7 @@ Microsoft.EntityFrameworkCore.Tools
 dotnet ef dbcontext scaffold "Data Source=MyDatabase.db" Microsoft.EntityFrameworkCore.Sqlite -o Models
 Эта команда создаст класс контекста данных и классы сущностей в папке Models на основе таблиц в базе данных MyDatabase.db. Вы можете указать дополнительные параметры для настройки генерации модели, такие как имя контекста данных, пространство имен, схемы и т.д.
 -- ------------------------------
-dotnet ef dbcontext scaffold "Data Source=C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\wwwroot\DB_Films.sqlite3" Microsoft.EntityFrameworkCore.Sqlite -o Models --project C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\BD_Films.csproj 
+dotnet ef dbcontext scaffold "Data Source=C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\wwwroot\DB_Films.sqlite3" Microsoft.EntityFrameworkCore.Sqlite -o Models --force --project C:\Work\C_Sharp\Bing\BD_Films\BD_Films\BD_Films\BD_Films.csproj
 -- ------------------------------
 ВОПРОС: Если структура данных изменилась, то мне надо еще раз будет запустить эту команду и файлы в папке Models будут обновлены?
 ОТВЕТ: Да, если структура данных изменилась, то вам нужно еще раз запустить эту команду, чтобы обновить файлы в папке Models. Однако, вы должны быть осторожны, так как это может перезаписать любые изменения, которые вы сделали в этих файлах. 

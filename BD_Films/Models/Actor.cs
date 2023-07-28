@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BD_Films.Models;
 
@@ -9,7 +11,8 @@ public partial class Actor
 
     public string Name { get; set; } = null!;
 
-    public long? YearBirth { get; set; }
+    [BindProperty, DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
+    public double? YearBirth { get; set; }
 
     public virtual ICollection<FilmsActor> FilmsActors { get; set; } = new List<FilmsActor>();
 }
