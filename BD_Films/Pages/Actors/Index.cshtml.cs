@@ -22,7 +22,8 @@ namespace BD_Films.Pages.Actors
         //[Begin] Bing
         public int PageSize { get; set; } = 3; // Количество элементов на странице
         public int TotalItems { get; set; } // Общее количество элементов
-        public int PageIndex { get; set; } // Номер текущей страницы
+        [BindProperty(SupportsGet = true)]
+        public int PageIndex { get; set; } = 1;  // Номер текущей страницы
         public int TotalPages => (int)Math.Ceiling(decimal.Divide(TotalItems, PageSize)); // Общее количество страниц
 
         // Метод для получения подмножества элементов для текущей страницы
