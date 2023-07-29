@@ -18,9 +18,14 @@ namespace BD_Films.Pages.Actors
             _context = context;
         }
 
-      public Actor Actor { get; set; } = default!; 
+        public Actor Actor { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(long? id)
+        // Добавь это свойство
+        [BindProperty(SupportsGet = true)]
+        public int PageIndex { get; set; } = 1;
+
+
+        public async Task<IActionResult> OnGetAsync(long? id, int PageIndex = 1)
         {
             if (id == null || _context.Actors == null)
             {
@@ -32,10 +37,13 @@ namespace BD_Films.Pages.Actors
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Actor = actor;
             }
+
+            this.PageIndex = PageIndex; // Присвой значение свойству
+
             return Page();
         }
     }

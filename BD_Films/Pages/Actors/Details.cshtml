@@ -27,5 +27,7 @@
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Actor?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    @*<a asp-page="./Index">Back to List</a>*@
+    <a asp-page="./Index" asp-route-PageIndex="@Model.PageIndex">Back to List</a>
+    <!-- Добавь asp-route-PageIndex -->
 </div>
