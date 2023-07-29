@@ -53,7 +53,8 @@ namespace BD_Films.Pages.Actors
 
         public IList<Actor> Actor { get; set; } = default!;
 
-        public async Task OnGetAsync(string? searchName, double? yearBirth, int page = 1)
+        //public async Task OnGetAsync(string? searchName, double? yearBirth, int page = 1)
+        public async Task OnGetAsync(string? searchName, double? yearBirth, int PageIndex = 1)        
         {
             IQueryable<Actor> actorsQuery = _context.Actors;
 
@@ -68,7 +69,8 @@ namespace BD_Films.Pages.Actors
             }
 
             TotalItems = await actorsQuery.CountAsync(); // Получаем общее количество элементов
-            PageIndex = page; // Устанавливаем номер текущей страницы
+            //PageIndex = page; // Устанавливаем номер текущей страницы
+            this.PageIndex = PageIndex;
             Actor = await actorsQuery.ToListAsync(); // Получаем все элементы
 
             this.searchName = searchName;
