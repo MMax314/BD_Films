@@ -7,6 +7,7 @@ namespace BD_Films.Models;
 
 public partial class Actor
 {
+    [HiddenInput]
     public long Id { get; set; }
 
     public string Name { get; set; } = null!;

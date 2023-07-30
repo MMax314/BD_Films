@@ -33,6 +33,8 @@ using BD_Films.Models;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.VisualBasic;
+using System.Formats.Tar;
 using System.Runtime.CompilerServices;
 
 namespace BD_Films
@@ -71,11 +73,25 @@ namespace BD_Films
                 var command = connection.CreateCommand();
                 command.CommandText = "SELECT * FROM Films LIMIT 3;";
                 var reader = command.ExecuteReader();
+
+                var table = (id: reader.GetOrdinal("id"), 
+                             Name: reader.GetOrdinal("Name"),
+                             Budget: reader.GetOrdinal("Budget"),
+                             Year: reader.GetOrdinal("Year"),
+                             Genre: reader.GetOrdinal("Genre"));
+
                 while (reader.Read())
                 {
-                    Console.WriteLine($"{reader.GetInt32(0)} {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)}");
+                    //Svar test = reader.GetDateTime(table.Year);
+                    Console.WriteLine($"{reader.GetString(table.id)}, " +
+                                      $"{reader.GetString(table.Name)}, " +
+                                      $"{reader.GetString(table.Budget)}, " +
+                                      $"{reader.GetString(table.Year)}, " +
+                                      $"{reader.GetString(table.Genre)}");
                 }
             }
+
+            //Console.WriteLine($"{reader.GetInt32(0)} {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)}");
         }
         public static void Main(string[] args)
         {
