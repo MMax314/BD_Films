@@ -20,7 +20,7 @@ namespace BD_Films.Pages.Actors
     public class IndexModel : PageModel
     {
         //[Begin] Bing
-        public int PageSize { get; set; } = 3; // Количество элементов на странице
+        public int PageSize { get; set; } = 100; // Количество элементов на странице
         public int TotalItems { get; set; } // Общее количество элементов
         [BindProperty(SupportsGet = true)]
         public int PageIndex { get; set; } = 1;  // Номер текущей страницы
@@ -55,6 +55,7 @@ namespace BD_Films.Pages.Actors
 
         //public async Task OnGetAsync(string? searchName, double? yearBirth, int page = 1)
         public async Task OnGetAsync(string? searchName, double? yearBirth, int PageIndex = 1)        
+        //public async Task OnGetAsync(string? searchName, DateTime yearBirth, int PageIndex = 1)
         {
             IQueryable<Actor> actorsQuery = _context.Actors;
 
