@@ -9,7 +9,10 @@ namespace BD_Films.Models;
 
 public partial class Actor
 {
-    [HiddenInput]
+    //[HiddenInput]
+    //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    //[Required]
+
     public long Id { get; set; }
 
     public string Name { get; set; } = null!;

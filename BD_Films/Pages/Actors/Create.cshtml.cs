@@ -30,7 +30,17 @@ namespace BD_Films.Pages.Actors
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Actors == null || Actor == null)
+            //Вопрос: почему не проходит валидация модели?
+            //Ответ: потому что в модели Actor нет атрибутов валидации
+            //Вопрос: почему ModelState.IsValid==false?
+            //Ответ: потому что валидация модели не прошла
+            //Вопрос: как сделать так, чтобы валидация модели прошла если поле ID будет пустым?
+            //Ответ: добавить атрибуты валидации в модель Actor
+            //Вопрос: В какой файл проекта нужно добавлять атрибуты валидации?
+            //Ответ: в файл модели Actor.cs
+            //Вопрос: Какой атрибут для валидации нужно добавить. чтобы поле ID могло быть пустым?
+            //Ответ: [Required]
+            if (!ModelState.IsValid || _context.Actors == null || Actor == null)
             {
                 return Page();
             }
