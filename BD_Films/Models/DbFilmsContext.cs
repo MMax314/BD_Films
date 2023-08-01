@@ -34,8 +34,8 @@ public partial class DbFilmsContext : DbContext
         modelBuilder.Entity<Actor>(entity =>
         {
             entity.Property(e => e.Id)
-                //.ValueGeneratedNever()
-                .ValueGeneratedOnAdd()
+                .ValueGeneratedNever()
+                //.ValueGeneratedOnAdd()
                 .HasColumnName("id");
         });
 
