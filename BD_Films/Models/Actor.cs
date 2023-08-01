@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,8 @@ public partial class Actor
     //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     //[Required]
 
+    //[Key]
+    [DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
     public long Id { get; set; }
 
     public string Name { get; set; } = null!;
