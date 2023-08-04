@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BD_Films.Models;
 using Azure;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BD_Films.Pages.Actors
 {
@@ -41,7 +42,7 @@ namespace BD_Films.Pages.Actors
         [BindProperty(SupportsGet = true)]
         public string? searchName { get; set; }
         [BindProperty(SupportsGet = true)]
-        public double? yearBirth { get; set; }
+        public string? yearBirth { get; set; }
         //[End] Bing
 
         private readonly BD_Films.Models.DbFilmsContext _context;
@@ -54,7 +55,7 @@ namespace BD_Films.Pages.Actors
         public IList<Actor> Actor { get; set; } = default!;
 
         //public async Task OnGetAsync(string? searchName, double? yearBirth, int page = 1)
-        public async Task OnGetAsync(string? searchName, double? yearBirth, int PageIndex = 1)        
+        public async Task OnGetAsync(string? searchName, string? yearBirth, int PageIndex = 1)        
         //public async Task OnGetAsync(string? searchName, DateTime yearBirth, int PageIndex = 1)
         {
             IQueryable<Actor> actorsQuery = _context.Actors;
@@ -64,9 +65,10 @@ namespace BD_Films.Pages.Actors
                 actorsQuery = actorsQuery.Where(a => a.Name.Contains(searchName));
             }
 
-            if (yearBirth.HasValue)
+            //Вопрос: Как добавить проверку yearBirth на null?
+            if (!string.IsNullOrEmpty(yearBirth))
             {
-                actorsQuery = actorsQuery.Where(a => a.YearBirth == yearBirth.Value);
+                actorsQuery = actorsQuery.Where(a => a.YearBirth.Contains(yearBirth));
             }
 
             TotalItems = await actorsQuery.CountAsync(); // Получаем общее количество элементов

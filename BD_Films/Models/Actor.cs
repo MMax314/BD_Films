@@ -17,8 +17,8 @@ public partial class Actor
 
     public string Name { get; set; } = null!;
 
-    [BindProperty, DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
-    public double? YearBirth { get; set; }
+    //[BindProperty, DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
+    public string YearBirth { get; set; }
     //[Column(TypeName = "REAL")]
     //public DateTime YearBirth { get; set; }
 

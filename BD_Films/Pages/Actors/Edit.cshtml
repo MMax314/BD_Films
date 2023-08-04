@@ -19,9 +19,16 @@
                 <input asp-for="Actor.Name" class="form-control" />
                 <span asp-validation-for="Actor.Name" class="text-danger"></span>
             </div>
+            @*
             <div class="form-group">
                 <label asp-for="Actor.YearBirth" class="control-label"></label>
                 <input asp-for="Actor.YearBirth" class="form-control" />
+                <span asp-validation-for="Actor.YearBirth" class="text-danger"></span>
+            </div>
+            *@
+            <div class="form-group">
+                <label asp-for="Actor.YearBirth" class="control-label"></label>
+                <input asp-for="Actor.YearBirth" class="form-control" type="date" asp-format="{0:yyyy-MM-dd}" />
                 <span asp-validation-for="Actor.YearBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
